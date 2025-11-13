@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            width: 420px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        label {
+            font-weight: bold;
+            text-align: left;
+            display: block;
+            margin-bottom: 6px;
+            color: #444;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #007bff;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.2s ease;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        .nav-links {
+            margin-top: 20px;
+        }
+
+        .nav-links a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+            display: block;
+            margin: 10px 0;
+        }
+
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        .logout {
+            margin-top: 15px;
+            color: red !important;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h2>Welcome, <span th:text="${username}"></span>!</h2>
+
+    <form action="/startQuiz" method="get">
+
+        <label>Select Category:</label>
+        <select name="category" required>
+            <option value="9">General Knowledge</option>
+            <option value="18">Computers</option>
+            <option value="15">Video Games</option>
+            <option value="12">Music</option>
+            <option value="10">Books</option>
+            <option value="27">Animals</option>
+            <option value="21">Sports</option>
+            <option value="11">Film</option>
+        </select>
+
+        <label>Number of Questions:</label>
+        <select name="amount" required>
+            <option value="5">5 Questions</option>
+            <option value="10">10 Questions</option>
+            <option value="15">15 Questions</option>
+        </select>
+
+        <button type="submit">Start Quiz</button>
+    </form>
+
+    <div class="nav-links">
+        <a href="/history">View Quiz History</a>
+        <a class="logout" href="/logout">Logout</a>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Quiz History</title>
+
+    <style>
+        /* Gradient background */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding-top: 50px;
+        }
+
+        /* Container card */
+        .container {
+            background: white;
+            width: 900px;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-top: 0;
+            margin-bottom: 25px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .delete-btn {
+            background-color: #dc3545;
+            color: white;
+            padding: 6px 12px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.2s ease;
+        }
+
+        .delete-btn:hover {
+            background-color: #b52a37;
+        }
+
+        .back-btn {
+            display: block;
+            width: 200px;
+            margin: 20px auto 0;
+            padding: 12px;
+            text-align: center;
+            background-color: #28a745;
+            color: white;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: 0.2s ease;
+        }
+
+        .back-btn:hover {
+            background-color: #1e7e34;
+        }
+
+        .empty {
+            text-align: center;
+            font-size: 18px;
+            margin-top: 20px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Quiz History</h1>
+
+    <!-- Show when no quiz history exists -->
+    <p class="empty" th:if="${historyList == null || #lists.isEmpty(historyList)}">
+        You haven't taken any quizzes yet.
+    </p>
+
+    <!-- Table of past quizzes -->
+    <table th:if="${historyList != null && !#lists.isEmpty(historyList)}">
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th>Score</th>
+                <th>Total</th>
+                <th>Percentage</th>
+                <th>Date Taken</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+
+        <tbody>

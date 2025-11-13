@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <style>
+        /* Full-page gradient background */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Card container */
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            width: 350px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 25px;
+        }
+
+        /* Error message styling */
+        .error-message {
+            color: red;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        /* Form styling */
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            text-align: left;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input[type="text"], input[type="password"] {
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 12px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #1e7e34;
+        }
+
+        .login-link {
+            margin-top: 15px;
+            display: block;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .login-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Create Account</h2>
+
+        <!-- Display error if username exists -->
+        <div th:if="${errorMessage}" class="error-message" th:text="${errorMessage}"></div>
+
+        <form th:action="@{/register}" th:object="${user}" method="post">
+            <label>Username:</label>
+            <input type="text" th:field="*{username}" placeholder="Enter username" required>
+
+            <label>Password:</label>
+            <input type="password" th:field="*{password}" placeholder="Enter password" required>
+
+            <button type="submit">Register</button>
+        </form>
+
+        <a class="login-link" href="/login">Already have an account? Login</a>
+    </div>
+</body>
+</html>

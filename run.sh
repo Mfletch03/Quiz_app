@@ -15,4 +15,6 @@ sudo service mysql status
 echo "===== Database ready ====="
 
 echo "===== Running Spring Boot App ====="
+mvn clean install
+
 mvn spring-boot:run

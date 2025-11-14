@@ -76,9 +76,18 @@
             text-decoration: underline;
         }
 
-        .logout {
-            margin-top: 15px;
-            color: red !important;
+        .logout-btn {
+            background: none;
+            border: none;
+            color: red;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .logout-btn:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -114,7 +123,11 @@
 
     <div class="nav-links">
         <a href="/history">View Quiz History</a>
-        <a class="logout" href="/logout">Logout</a>
+
+        <!-- WORKING LOGOUT BUTTON -->
+        <form th:action="@{/logout}" method="post">
+            <button type="submit" class="logout-btn">Logout</button>
+        </form>
     </div>
 
 </div>

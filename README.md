@@ -9,9 +9,23 @@ This project is a fully functional quiz web application that lets users take qui
 * A **MySQL database** that stores user accounts and all quizzes they have taken, along with their scores
 * A quiz results page that shows which questions were answered correctly or incorrectly, including the user's answer and the correct answer
 
+## Prerequisites
+
+* Java 17 or newer is required (the project is built with Spring Boot 3 / Maven 4).
+
+On Ubuntu/Debian you can install Java 17 and Maven 4 it with:
+
+```bash
+sudo apt update
+sudo apt install -y openjdk-17-jdk
+mvn install
+```
+
 ## How to Run
 
 1. **Open the project** in your own Codespace.
+
+2. Make sure **Prerequisites** are met
 
 2. Run the shell script using the command:
 
